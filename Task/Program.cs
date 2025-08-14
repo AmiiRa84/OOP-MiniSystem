@@ -44,7 +44,7 @@ namespace Task
                 Console.Write("Enter number of animals to add:int plz");
                 isParsed = int.TryParse(Console.ReadLine(), out animalCount);
             } while (!isParsed);
-        
+
             for (int i = 0; i < animalCount; i++)
             {
                 Console.WriteLine($"Adding animal {i + 1}");
@@ -59,7 +59,7 @@ namespace Task
 
                 Console.Write("Enter name: ");
                 string Name = Console.ReadLine();
-                
+
                 int Age;
                 do
                 {
@@ -83,14 +83,18 @@ namespace Task
                     Dog dog = new Dog(Name, Age);
 
 
-                    Console.WriteLine("Do you want the dog to play? yes or no: ");
-                    string playChoice = Console.ReadLine().ToLower();
+                    string playChoice;
 
-                   
+                    do
+                    {
+                        Console.WriteLine("Do you want the dog to play? yes / no: ");
+                        playChoice = Console.ReadLine().ToLower();
+                    }
+                    while (playChoice != "yes" || playChoice != "no");
                     if (playChoice == "yes")
                     {
 
-                        Console.Write("Do you want to specify a toy? yes or no: ");
+             Console.Write("Do you want to specify a toy? yes / no: ");
                         string toyChoice = Console.ReadLine().ToLower();
 
                         if (toyChoice == "yes")
@@ -104,9 +108,9 @@ namespace Task
                             dog.Play();
                         }
                     }
-                
 
-                zoo01.AddNewAnimal(dog);
+
+                    zoo01.AddNewAnimal(dog);
                 }
             }
             Console.Clear();
@@ -115,8 +119,8 @@ namespace Task
             zoo01.ShowAllAnimals();
             zoo01.FeedAllAnimals();
             zoo01.MakeAllSounds();
-           
-            
+
+
         }
 
 
